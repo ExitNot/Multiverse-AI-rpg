@@ -1,6 +1,6 @@
 
 from ai.llm_client import LLMClient
-from config import WORLD_PROMPT
+from config import WORLD_PROMPT, STORY_STRUCT_PROMPT
 
 class StoryGenerator:
     def __init__(self):
@@ -12,6 +12,10 @@ class StoryGenerator:
     # def generate_story(self, context, user_input):
     # TODO generate story depending on context and user input
 
-    def generate_adventure_struct(self) -> str:
-        task_prompt = """You have to generate short story structure with basic description of the world (2 sentences), list of {challenges} and list of {npc}. separated in json format"""
-        return self.client.generate_text(WORLD_PROMPT, task_prompt, "")
+    def generate_adventure_struct(self, topic = None) -> str:
+        story_context = ""
+        if topic != None:
+            story_context = STORY_STRUCT_PROMPT + "{mission} have to rely on " + topic + " topic"
+        else:
+            story_context = STORY_STRUCT_PROMPT
+        return self.client.generate_text(WORLD_PROMPT, STORY_STRUCT_PROMPT, "")
