@@ -28,5 +28,5 @@ class GameEngine:
                 print("Thank you for adventure!")
                 break
             
-            response = self.story_generator.generate_response(user_input)
-            print("\n" + response) 
+            # response = self.story_generator.generate_response(user_input)
+            # print("\n" + response) 

@@ -3,8 +3,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-LLAMA_API_KEY = os.getenv("LLAMA_API_KEY")
-MODEL_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.3-70B-Instruct"
+HF_API_KEY = os.getenv("HF_API_KEY")
+MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.3"
+MODEL_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.3"
+# MODEL_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-3.3-70B-Instruct"
 
 # Prompts
 WORLD_PROMPT = """You are a game master (as in DnD games). The game is about a multidimensional travelers' guild. The player is a time traveler who has been transported to a dimension with completely different rules of reality (stylistically, a combination of Rick and Morty, Star Trek, and Doctor Who).

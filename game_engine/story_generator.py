@@ -12,6 +12,6 @@ class StoryGenerator:
     # def generate_story(self, context, user_input):
     # TODO generate story depending on context and user input
 
-    def generate_adventure_struct(self):
+    def generate_adventure_struct(self) -> str:
         task_prompt = """You have to generate short story structure with basic description of the world (2 sentences), list of {challenges} and list of {npc}. separated in json format"""
-        self.client.generate_text(WORLD_PROMPT, task_prompt, "")
+        return self.client.generate_text(WORLD_PROMPT, task_prompt, "")

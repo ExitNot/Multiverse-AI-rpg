@@ -1,6 +1,6 @@
 import requests
 import json
-from config import MODEL_URL, LLAMA_API_KEY
+from config import MODEL_URL, HF_API_KEY
 
 # Client for handling LLM requests to Llama
 class LLMClient:
@@ -8,7 +8,7 @@ class LLMClient:
     def __init__(self):
         self.api_url = MODEL_URL
         self.headers = {
-            "Authorization": f"Bearer {LLAMA_API_KEY}",
+            "Authorization": f"Bearer {HF_API_KEY}",
             "Content-Type": "application/json"
         }
 
@@ -28,8 +28,10 @@ class LLMClient:
         }
 
         response = requests.post(self.api_url, headers=self.headers, data=json.dumps(payload))
+
         if response.status_code == 200:
-            return response.json()["generated_text"]
+            return response.json()[0]['generated_text']
         else:
-            return f"Error: {response.status_code}, {response.text}"
+            error_msg = f"Error: {response.status_code}, {response.text}"
+            return error_msg
         
