@@ -7,6 +7,7 @@ class GameEngine:
         self.story_generator = StoryGenerator()
         self.is_running = False
         self.story = None
+        self.message_history = []
         self.logger = logging.getLogger(__name__)
 
     def start_game(self):
@@ -17,26 +18,39 @@ class GameEngine:
         # TODO Generating available missions
         
         story_struct = self.story_generator.generate_adventure_struct()
-        self.logger.info("STORY_STRUCT: " + json.dumps(story_struct))
-        locations = [Location(loc['loc_id'], loc['loc_description'], [Route(route['loc_id'], route['loc_availability']) for route in loc['routes']]) for loc in story_struct['locations']]
-        npc = [Npc(n['npc_name'], n['npc_description'], n['npc_knowledge']) for n in story_struct['npc']]
-        challenges = [Challenge(ch['ch_id'], ch['ch_description']) for ch in story_struct['challenges']]
-        self.story = Story(story_struct['title_of_mission'], story_struct['description'], locations, challenges, npc)
+        self.message_history.append("Story: " + str(story_struct))
+        self.write_story(story_struct)
 
-        self.logger.info(str(self.story))
         print("Mission: " + self.story.title + "\n")
         print(self.story.description)
+
 
     def game_loop(self):
         self.start_game()
         
         while self.is_running:
             user_input = input("\nWhat will you do? > ")
-            
+            print("+=============================+")
+            self.logger.info(user_input)
+
             if user_input.lower() == 'exit':
                 self.is_running = False
                 print("Thank you for adventure!")
                 break
+
+            response = self.story_generator.generate_story(self.message_history, user_input)
+            self.message_history.append("Player: " + user_input)
+            print(response)
+
+            
+
+    def write_story(self, story_struct):
+        self.logger.info("STORY_STRUCT: " + json.dumps(story_struct))
+        locations = [Location(loc['loc_id'], loc['loc_description'], [Route(route[0], route[1]) for route in loc['routes']]) for loc in story_struct['locations']]
+        npc = [Npc(n['npc_name'], n['npc_description'], n['npc_knowledge']) for n in story_struct['npcs']]
+        challenges = [Challenge(ch['challenge_id'], ch['description']) for ch in story_struct['challenges']]
+        self.story = Story(story_struct['title_of_mission'], story_struct['description'], locations, challenges, npc)
+        self.logger.info("Story saved!")
 
 class Challenge:
     def __init__(self, ch_id, ch_description):
