@@ -3,6 +3,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+dynamic_config = {
+    'GAME_LANGUAGE': 'English'
+}
+
 HF_API_KEY = os.getenv("HF_API_KEY")
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
 MISTRAL_MODEL_NAME = "mistral-small-latest"

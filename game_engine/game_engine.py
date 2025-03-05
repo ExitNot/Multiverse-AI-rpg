@@ -1,6 +1,9 @@
 from game_engine.story_generator import StoryGenerator
 import json
 import logging
+from config import dynamic_config
+
+from game_engine.structs import Challenge, Location, Npc, Route, Story
 
 class GameEngine:
     def __init__(self):
@@ -12,6 +15,7 @@ class GameEngine:
 
     def start_game(self):
         self.is_running = True
+        self.logger.info("Language choosen:" + dynamic_config['GAME_LANGUAGE'])
         print("Hi adventurer. You ready to take your next mission?\n")
         print("(For exit the game you have to enter \"exit\")\n\n\n")
         
@@ -51,48 +55,3 @@ class GameEngine:
         challenges = [Challenge(ch['challenge_id'], ch['description']) for ch in story_struct['challenges']]
         self.story = Story(story_struct['title_of_mission'], story_struct['description'], locations, challenges, npc)
         self.logger.info("Story saved!")
-
-class Challenge:
-    def __init__(self, ch_id, ch_description):
-        self.id = int(ch_id.removeprefix('ch_'))
-        self.description = ch_description
-
-    def __repr__(self) -> str:
-        return f"\nChallenge (ID: {self.id}; Description: {self.description})"
-
-class Route:
-    def __init__(self, loc_id, loc_availability):
-        self.loc_id = int(loc_id.removeprefix('loc_'))
-        self.availability = loc_availability
-
-    def __repr__(self) -> str:
-        return f"\nRoute (Location id: {self.loc_id}; Availability: {self.availability})"
-
-class Location:
-    def __init__(self, loc_id, loc_description, route):
-        self.id = int(loc_id.removeprefix('loc_'))
-        self.description = loc_description
-        self.route = route
-
-    def __repr__(self) -> str:
-        return f"\nLocation (\nID: {self.id};\nDescription: {self.description};\nRoute: {self.route};)"
-
-class Npc:
-    def __init__(self, npc_name, npc_description, npc_knowledge):
-        self.name = npc_name
-        self.description = npc_description
-        self.knowledge = npc_knowledge
-
-    def __repr__(self) -> str:
-        return f"\nNPC (\nName: {self.name} ;\nDescription: {self.description};\nKnowledge: {self.knowledge};)"
-    
-class Story:
-    def __init__(self, title, description, locations, challenges, npc):
-        self.title = title
-        self.description = description
-        self.locations = locations
-        self.challenges = challenges
-        self.npc = npc
-
-    def __str__(self) -> str:
-        return f"Story (\nTitle:{self.title};\nDescription: {self.description};\nChallenges: \n{self.challenges};\nLocations: \n{self.locations};\nNPC's: \n{self.npc};\n"
