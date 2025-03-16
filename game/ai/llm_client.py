@@ -1,6 +1,6 @@
 import logging
 from mistralai import Mistral
-from config import MISTRAL_API_KEY, MISTRAL_MODEL_NAME
+from game.config import MISTRAL_API_KEY, MISTRAL_MODEL_NAME
 
 # Client for handling LLM requests to Mistral
 class LLMClient:

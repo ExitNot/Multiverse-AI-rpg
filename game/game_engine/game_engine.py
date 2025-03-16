@@ -1,9 +1,10 @@
 from game_engine.story_generator import StoryGenerator
 import json
 import logging
-from config import dynamic_config
+from game.config import dynamic_config
 
 from game_engine.structs import Challenge, Location, Npc, Route, Story
+from utils.locale import Locale
 
 class GameEngine:
     def __init__(self):
@@ -31,15 +32,15 @@ class GameEngine:
 
     def game_loop(self):
         self.start_game()
+        loacle = Locale()
         
         while self.is_running:
-            user_input = input("\nWhat will you do? > ")
+            user_input = input(f"\n{loacle["action_msg"]} > ")
             print("+=============================+")
             self.logger.info(user_input)
 
             if user_input.lower() == 'exit':
                 self.is_running = False
-                print("Thank you for adventure!")
                 break
 
             response = self.story_generator.generate_story(self.message_history, user_input)

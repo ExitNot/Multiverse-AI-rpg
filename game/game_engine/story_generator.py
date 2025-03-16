@@ -1,7 +1,7 @@
 import logging
 from ai.llm_client import LLMClient
 from ai.promptsV2 import CONVERSATION_HEADER, DEFINITIONS, LANGUAGE_PROMPT, STORY_TELLER, WORLD_PROMPT, STORY_STRUCT_PROMPT
-from config import dynamic_config
+from game.config import dynamic_config, STORY_STRUCT_MOCK
 import json
 
 
@@ -21,13 +21,17 @@ class StoryGenerator:
         return response
 
     def generate_adventure_struct(self, topic = None):
-        story_context = ""
-        # if topic != None:
-        #     story_context = STORY_STRUCT_PROMPT + "{mission} have to rely on " + topic + " topic"
-        # else:
-        #     story_context = STORY_STRUCT_PROMPT
-        # response = self.client.generate_text(WORLD_PROMPT + "\n" + DEFINITIONS, STORY_STRUCT_PROMPT, "", "json_object")
-        # Use for testing if do not whant to waste tokens
-        response = self.client.generate_mocked_story()
+        response = ""
+
+        if (STORY_STRUCT_MOCK == True): # Use for testing if do not whant to waste tokens
+            response = self.client.generate_mocked_story()
+        else:
+            story_context = ""
+            if topic != None:
+                story_context = STORY_STRUCT_PROMPT + "{mission} have to rely on " + topic + " topic"
+            else:
+                story_context = STORY_STRUCT_PROMPT
+            response = self.client.generate_text(WORLD_PROMPT + "\n" + DEFINITIONS, story_context, "", "json_object")
+        
         self.logger.info(response)
         return json.loads(response)
