@@ -102,6 +102,6 @@ Always maintain game consistency and track player progress toward finding the ti
 When player is meneged to write "absorb time anomaly" and you see that it is possible you have to respond "Congratulations! You finish your mission".
 """
 
-CONVERSATION_HEADER = "Here is the conversation history:\n"
+CONVERSATION_HEADER = "Here is the conversation  history:\n"
 
 LANGUAGE_PROMPT = "All your answers have to be in {lang}. Use only {lang} language to communicate with player"

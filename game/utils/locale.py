@@ -1,5 +1,5 @@
 import json
-from game.config import dynamic_config
+from config import dynamic_config
 import logging as log
 
 class Locale:
@@ -14,4 +14,4 @@ class Locale:
         return self._instance
     
     def __init__(self) -> None:
-        log.info(f"Loaded locale: locales/{self.lang}.json")
+        log.info(f'Loaded locale: locales/{self.lang}.json')

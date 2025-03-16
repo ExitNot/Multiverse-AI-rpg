@@ -1,6 +1,6 @@
 import logging
 from mistralai import Mistral
-from game.config import MISTRAL_API_KEY, MISTRAL_MODEL_NAME
+from config import MISTRAL_API_KEY, MISTRAL_MODEL_NAME
 
 # Client for handling LLM requests to Mistral
 class LLMClient:
@@ -10,7 +10,7 @@ class LLMClient:
         self.client = Mistral(api_key=MISTRAL_API_KEY)
 
     def generate_text(self, system_context, story_context, user_prompt, response_format = "text"):
-        '''Generates text depending on user input'''
+        """Generates text depending on user input"""
         if story_context != "": 
             system_prompt = system_context + "\n" + story_context
         else: system_prompt = system_context
@@ -37,9 +37,6 @@ class LLMClient:
 
             self.logger.debug(f"Usage: {clint_response.usage}")
             assistant_msg = clint_response.choices[0].message.content
-            # ======================================
-            # Response Mock
-            # assistant_msg = basic_response
 
             self.logger.debug(f"Response: {assistant_msg}")
             return assistant_msg

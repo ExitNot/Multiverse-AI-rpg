@@ -15,5 +15,7 @@ MISTRAL_MODEL_NAME = "mistral-small-latest"
 HF_MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.3"
 HF_MODEL_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.3"
 
+
+
 # Game Settings
 STORY_STRUCT_MOCK = True

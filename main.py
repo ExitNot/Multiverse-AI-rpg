@@ -1,5 +1,5 @@
 from game.game_engine.game_engine import GameEngine
-import game.config as config
+import config as config
 import logging as log
 import argparse
 
@@ -19,6 +19,7 @@ def parse_lang(input: str) -> str:
     log.info("Language chosen: " + lang)
 
 def main():
+    '''Start application server.'''
     parser = argparse.ArgumentParser(description="Set the logging level via command line")
     parser.add_argument('--log', default='INFO', help='Set the logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)')
     parser.add_argument('--lang', default='English', help='Set the language to llm')

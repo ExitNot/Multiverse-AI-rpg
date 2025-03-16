@@ -1,5 +1,6 @@
 {
     "welcome_message": "Welcome to the Multiverse AI RPG!",
     "exit_message": "Thank you for playing!",
-    "action_msg": "Your action:> "
+    "action_msg": "Your action:> ",
+    "mission_suggestion": "Hi adventurer. You ready to take your next mission?\n"
 }
