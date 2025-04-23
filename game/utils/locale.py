@@ -4,7 +4,7 @@ import logging as log
 
 class Locale:
     _instance = None
-    lang = 'en'
+    lang: str
 
     def __new__(self):
         if self._instance is None:
@@ -14,4 +14,5 @@ class Locale:
         return self._instance
     
     def __init__(self) -> None:
-        log.info(f'Loaded locale: locales/{self.lang}.json')
+        self.log = log.getLogger(__name__)
+        self.log.info(f'Loaded locale: locales/{self.lang}.json')
