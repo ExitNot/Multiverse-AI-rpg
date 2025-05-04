@@ -43,6 +43,11 @@ def main():
     parser.add_argument('--client', default='console', help='Choose client type (console, telegram)')
     args = parser.parse_args()
 
+    import os
+    
+    # Ensure logs directory exists
+    os.makedirs('logs', exist_ok=True)
+    
     log.basicConfig(
         filename='logs/game_log.log',
         filemode='a+',
@@ -50,6 +55,13 @@ def main():
         level=args.log.upper(),
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     )
+    
+    # Also log to console
+    console_handler = log.StreamHandler()
+    console_handler.setLevel(args.log.upper())
+    formatter = log.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    console_handler.setFormatter(formatter)
+    log.getLogger().addHandler(console_handler)
     
     # Load the desired language
     parse_lang(args.lang)
