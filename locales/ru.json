@@ -1,4 +1,8 @@
 {
     "welcome_message": "Добро пожаловать в Multiverse AI RPG!",
-    "exit_message": "Спасибо за игру!"
+    "exit_message": "Спасибо за игру!",
+    "action_msg": "Ваше действие:> ",
+    "mission_suggestion": "Привет, искатель приключений. Готов к следующему заданию?\n",
+    "language_name": "Русский",
+    "language_selected": "Вы выбрали {language}"
 }

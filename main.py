@@ -45,6 +45,7 @@ def main():
 
     log.basicConfig(
         filename='logs/game_log.log',
+        filemode='a+',
         encoding='utf-8',
         level=args.log.upper(),
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'

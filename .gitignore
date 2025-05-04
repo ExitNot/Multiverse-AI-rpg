@@ -1,4 +1,4 @@
-# Віртуальне середовище
+# Virtual Env
 venv/
 env/
 .env
@@ -16,8 +16,11 @@ downloads/
 eggs/
 .eggs/
 lib/
+share/
 lib64/
+lib64
 parts/
+bin/
 sdist/
 var/
 wheels/
@@ -33,14 +36,14 @@ logs/
 *.swo
 .DS_Store
 
-# Логи
+# Logs
 *.log
 
-# Локальні налаштування
+# Local settings
 instance/
 .webassets-cache
 
-# Тестове покриття
+# Tests
 htmlcov/
 .tox/
 .coverage
