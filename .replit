@@ -1,0 +1,9 @@
+modules = ["python-3.12"]
+run = "python3 main.py --client telegram"
+
+[nix]
+channel = "stable-24_05"
+packages = ["cacert", "cargo", "glibcLocales", "libiconv", "libxcrypt", "openssl", "pkg-config", "rustc"]
+
+[deployment]
+run = ["sh", "-c", "python3 main.py --client telegram"]
