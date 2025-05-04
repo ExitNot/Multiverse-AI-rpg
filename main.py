@@ -7,18 +7,6 @@ from game.utils.locale import Locale
 from clients.telegram_client import TelegramClient
 from clients.console_client import ConsoleClient
 
-def parse_lang(input: str) -> str:
-    lang = ''
-    match input.lower():
-        case 'en': lang = 'en'
-        case 'uk' | 'ua' | 'ukr': lang = 'uk'
-        case 'cs' | 'cz': lang = 'cz'
-        case 'ru': lang = 'ru'
-        case _: 
-            log.error("No such language found")
-            'en'
-    config.dynamic_config['GAME_LANGUAGE'] = lang
-    log.info("Language chosen: " + lang)
 
 def get_client(client_type: str):
     """Get client instance based on type"""
@@ -63,20 +51,12 @@ def main():
     console_handler.setFormatter(formatter)
     log.getLogger().addHandler(console_handler)
     
-    # Load the desired language
-    parse_lang(args.lang)
-    locale = Locale()
-
-    print(locale["welcome_message"])
-    
     # Initialize and start the chosen client
     client = get_client(args.client)
     try:
         client.start()
     except KeyboardInterrupt:
         client.stop()
-        
-    print(locale["exit_message"])
 
 if __name__ == "__main__":
     main()

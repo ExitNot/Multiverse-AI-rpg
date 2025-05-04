@@ -37,17 +37,17 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     await update.message.reply_text("Help!")
 
 
-def get_user_logger(user_id: int) -> logging.Logger:
+def get_user_logger(user_id: int) -> log.Logger:
     """Create or get a logger for specific user"""
-    logger = logging.getLogger(f'user_{user_id}')
+    logger = log.getLogger(f'user_{user_id}')
     
     if not logger.handlers:
         os.makedirs('logs/users', exist_ok=True)
-        handler = logging.FileHandler(f'logs/users/user_{user_id}.log')
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        handler = log.FileHandler(f'logs/users/user_{user_id}.log')
+        formatter = log.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
         logger.addHandler(handler)
-        logger.setLevel(logging.INFO)
+        logger.setLevel(log.INFO)
     
     return logger
 

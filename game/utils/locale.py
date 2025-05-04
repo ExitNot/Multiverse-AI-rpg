@@ -2,17 +2,18 @@ import json
 from config import dynamic_config
 import logging as log
 
+
 class Locale:
     _instance = None
-    lang: str
+    lang: str = "en"
 
-    def __new__(self):
+    def __new__(self, lang):
         if self._instance is None:
             lang = dynamic_config['GAME_LANGUAGE']
             with open(f'locales/{lang}.json', 'r', encoding='utf-8') as file:
                 self._instance = json.load(file)
         return self._instance
-    
+
     def __init__(self) -> None:
         self.log = log.getLogger(__name__)
         self.log.info(f'Loaded locale: locales/{self.lang}.json')
