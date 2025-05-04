@@ -1,9 +1,9 @@
-from game_engine.story_generator import StoryGenerator
+from .story_generator import StoryGenerator
 import json
 import logging
 
-from game_engine.structs import Challenge, Location, Npc, Route, Story
-from utils.locale import Locale
+from .structs import Challenge, Location, Npc, Route, Story
+from ..utils.locale import Locale
 
 class GameEngine:
     '''Game engine consist of main game entities and manipulate current game state'''

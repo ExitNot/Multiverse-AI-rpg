@@ -1,6 +1,6 @@
 import logging
-from ai.llm_client import LLMClient
-from ai.promptsV2 import CONVERSATION_HEADER, DEFINITIONS, LANGUAGE_PROMPT, STORY_TELLER, WORLD_PROMPT, STORY_STRUCT_PROMPT
+from ..ai.llm_client import LLMClient
+from ..ai.promptsV2 import CONVERSATION_HEADER, DEFINITIONS, LANGUAGE_PROMPT, STORY_TELLER, WORLD_PROMPT, STORY_STRUCT_PROMPT
 from config import dynamic_config, STORY_STRUCT_MOCK
 import json
 

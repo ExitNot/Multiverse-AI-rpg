@@ -1,4 +1,8 @@
 {
     "welcome_message": "Vítejte v Multiverse AI RPG!",
-    "exit_message": "Děkujeme za hraní!"
+    "exit_message": "Děkujeme za hru!",
+    "action_msg": "Vaše akce:> ",
+    "mission_suggestion": "Ahoj dobrodruhu. Jsi připraven na další misi?\n",
+    "language_name": "Čeština",
+    "language_selected": "Vybrali jste {language}"
 }
