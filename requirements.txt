@@ -36,3 +36,8 @@ typing_extensions==4.12.2
 urllib3==2.3.0
 virtualenv==20.29.2
 yarg==0.1.10
+pinecone==5.4.2
+pinecone-plugin-inference==3.1.0
+pinecone-plugin-interface==0.0.7
+supabase==2.6.0
+supafunc==0.5.1
