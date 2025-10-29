@@ -1,6 +1,6 @@
 from typing import Optional
 from persistence.repositories import UserRepository, VectorRepository
-from persistence.implementations import SupabaseUserRepository, PineconeVectorRepository
+from persistence.impl import SupabaseUserRepository, PineconeVectorRepository
 from db.database_config import DatabaseConfig
 
 class RepositoryFactory:

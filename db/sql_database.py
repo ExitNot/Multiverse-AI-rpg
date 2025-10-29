@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Optional, Dict, Any
 from supabase import create_client, Client
-from db.entities import User, UserSettings
+from domain.entities import User, UserSettings
 
 class SQLDatabase(ABC):
     @abstractmethod

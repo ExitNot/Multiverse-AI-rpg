@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Optional, Dict, Any, List
 import pinecone
-from db.entities import Message, WorldContext
+from domain.entities import Message, WorldContext
 
 class VectorDatabase(ABC):
     @abstractmethod

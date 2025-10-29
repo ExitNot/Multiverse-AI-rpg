@@ -4,5 +4,11 @@
     "action_msg": "Vaše akce:> ",
     "mission_suggestion": "Ahoj dobrodruhu. Jsi připraven na další misi?\n",
     "language_name": "Čeština",
-    "language_selected": "Vybrali jste {language}"
+    "language_selected": "Vybrali jste {language}",
+    "welcome_back": "Vítejte zpět! Váš jazyk je nastaven na {language}",
+    "welcome_new": "Vítejte! Váš výchozí jazyk je nastaven na {language}. Můžete ho změnit pomocí tlačítek níže:",
+    "help_message": "Zde jsou dostupné příkazy:\n/start - Spustit nebo restartovat bota\n/help - Zobrazit tuto nápovědu",
+    "language_changed": "Váš jazyk byl změněn na {language}",
+    "error_generic": "Omlouváme se, něco se pokazilo. Prosím, zkuste to později.",
+    "error_language_change": "Omlouváme se, při aktualizaci jazykového nastavení došlo k chybě."
 }

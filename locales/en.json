@@ -4,5 +4,11 @@
     "action_msg": "Your action:> ",
     "mission_suggestion": "Hi adventurer. You ready to take your next mission?\n",
     "language_name": "English",
-    "language_selected": "You have selected {language}"
+    "language_selected": "You have selected {language}",
+    "welcome_back": "Welcome back! Your language is set to {language}",
+    "welcome_new": "Welcome! Your default language is set to {language}. You can change it using the buttons below:",
+    "help_message": "Here are the available commands:\n/start - Start or restart the bot\n/help - Show this help message",
+    "language_changed": "Your language has been changed to {language}",
+    "error_generic": "Sorry, something went wrong. Please try again later.",
+    "error_language_change": "Sorry, something went wrong while updating your language preference."
 }
